@@ -1,0 +1,108 @@
+<html>
+<head>
+<script language="javascript">
+function check_Login() {
+  var passw=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;  
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 1 && this.status == 0) {
+     var username = window.document.f1.username.value;
+	 var password = window.document.f1.password.value;
+	 if(username=="")
+	 {
+	 	alert("Name must be filled out");
+        	return false;
+	 }
+	 if(window.document.f1.password.value.match(passw))
+	 {
+		alert('Login Successfull')  
+		return true; 
+	}
+	else
+        {
+	 alert("Login Failed");
+	}
+    }
+  };
+  xhttp.open("GET", "login.html", true);
+  xhttp.send();
+}
+</script>
+</head>
+	<title></title>
+	<style type="text/css">
+body
+{
+	background-color:skyblue;
+	background-image: vv.jpg;
+	background-size:cover;
+	
+}
+
+.aa
+{
+	width:300px;
+	height:250px;
+	background-color:rgba(0,0,0,0.5);
+	margin:0 auto; 
+	margin-top:40px;
+	padding-top:10px;
+	padding-left:50px;
+	border-radius:15px;
+	-webkit-border-radius:15px;
+	-o-border-radius:15px;
+	-mox-border-radius:15px;
+
+	color:white;
+	font-weight:bolder;
+	box-shadow: inset -4px -4x rgba(0,0,0,0.5);
+
+}
+.aa input[type="text"]{
+	width:200px;
+	height:35px;
+	border:0;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-o-border-radius:5px;
+	-moz-border-radius:5px;
+	padding-left:5px;
+}
+
+.aa input[type="button"]{
+	width:110px;
+	height:35px;
+	border:0px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-o-border-radius:5px;
+	-moz-border-radius:5px;
+	background-color:skyblue;
+	
+}
+
+.aa input[type="password"]{
+	width:200px;
+	height:35px;
+	border:0;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-o-border-radius:5px;
+	-moz-border-radius:5px;
+	padding-left:5px;
+}
+
+	</style>
+<body>
+<div class="aa">
+<h2>Login</h2>
+
+
+<form name="f1" onsubmit="return call_login();">
+	<input type="text" name="username" id="user" value="" placeholder="Please Enter Username" ></input><br><br>
+	<input type="password" name="password" value="" placeholder="Please Enter Password"></input><br><br>
+	<input type="button"  name="a1" value="Login" onclick="check_Login()"></input>
+</form>
+</div>
+</body>
+</html>
